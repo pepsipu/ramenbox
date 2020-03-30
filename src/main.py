@@ -34,8 +34,18 @@ cpu = CPU()
 display = ST7789.ST7789(SPI.SpiDev(0, 0))
 welcome.welcome_msg(display)
 
-program = "\xa9\x80\x85\x01\x65\x01\x0a"
+program = "\xa9\x01\x85\xff"
 for i, byte in enumerate(program):
     cpu.mem.write(i, ord(byte))
+debug = True
 while True:
-    cpu.step()
+    if debug:
+        cmd = input()
+        args = cmd.split(" ")
+        cmd = args[0]
+        if cmd == "n":
+            cpu.step()
+        elif cmd == "x":
+            print(cpu.mem.read(int(args[1], 16)))
+    else:
+        cpu.step()

@@ -12,6 +12,7 @@ class CPU:
     sp = 0
     mem = memory.Memory()
     ops = {}
+    custom_ops = {}
 
     def __init__(self):
         op_list = json.load(open("./ramencore/opcodes.json", "r"))
@@ -28,9 +29,23 @@ class CPU:
             "bytes": 1,
             "name": "quit yes"
         }
+        custom_op_list = json.load(open("./ramencore/custom_opcodes.json", "r"))
+        for op in custom_op_list:
+            self.custom_ops[op["byte"]] = {
+                "func": getattr(instructions, "_{}".format(op["name"].lower())),
+                "addressing": op["addressing"],
+                "bytes": op["byte_length"],
+                "name": op["name"]
+            }
 
     def step(self):
-        instruction = self.ops[self.mem.read(self.pc)]
+        byte = self.mem.read(self.pc)
+        # ramenbox custom instructions are prefixed with 0xff
+        if byte == 0xff:
+            self.pc += 1
+            instruction = self.custom_ops[self.mem.read(self.pc)]
+        else:
+            instruction = self.ops[byte]
         dump = ""
         for i in range(instruction["bytes"]):
             dump += hex(self.mem.read(self.pc + i)) + " "
@@ -45,7 +60,7 @@ class CPU:
         elif instruction["addressing"] == "in":
             data = self.mem.read(self.mem.read(self.pc + 1) + (self.mem.read(self.pc + 2) << 8))
         elif instruction["addressing"] == "z":
-            data = self.mem.read(self.mem.read(self.pc + 1))
+            data = self.mem.read(self.pc + 1)
         elif instruction["addressing"] == "zx":
             data = (self.mem.read(self.pc + 1) + self.x) & 0xff
         elif instruction["addressing"] == "zy":
@@ -60,7 +75,8 @@ class CPU:
             new_address = self.x + (self.mem.read(self.pc + 2) << 8)
             data = self.mem.read(new_address) + self.mem.read(new_address + 1) << 8
         elif instruction["addressing"] == "iy":
-            data = self.mem.read(self.mem.read(self.pc + 2)) + (self.mem.read(self.mem.read(self.pc + 2) + 1) << 8) + self.y
+            data = self.mem.read(self.mem.read(self.pc + 2)) + (
+                    self.mem.read(self.mem.read(self.pc + 2) + 1) << 8) + self.y
         self.pc += instruction["bytes"]
         instruction["func"](self, data)
         print(self)

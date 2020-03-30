@@ -357,3 +357,36 @@ def _tya(cpu, data):
     cpu.y = cpu.ac
     set_zero(cpu, cpu.ac)
     set_negative(cpu, cpu.ac)
+
+
+# custom ramenbox ops
+
+# transfer display buffer (TDB)
+# reads display buffer (0xc5ff - 0x
+def _tdb(cpu, data):
+    pass
+
+
+# page swapping
+# page selection: specified register
+# bank selection: data (can be set as an immediate value or absolute value)
+# in pxy, page swapping addressing is implied as it uses x for the page selection and y for the bank selection
+
+# page swap using accumulator
+def _psa(cpu, data):
+    cpu.mem.pages[cpu.ac]["active_bank"] = data
+
+
+# page swap using x
+def _psx(cpu, data):
+    cpu.mem.pages[cpu.y]["active_bank"] = data
+
+
+# page swap using y
+def _psy(cpu, data):
+    cpu.mem.pages[cpu.y]["active_bank"] = data
+
+
+# page swap using x and y
+def _pxy(cpu, data):
+    cpu.mem.pages[cpu.x]["active_bank"] = cpu.y

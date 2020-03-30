@@ -1,11 +1,19 @@
 class Memory:
-    mem = [0] * 0xffff
+    pages = [{
+        "banks": [[0] * 0x100] * 0x80,
+        "active_bank": 0
+    }] * 0x100
 
     def read(self, address, sign=False):
-        res = self.mem[address]
+        page = self.pages[(address & 0xff00) >> 8]
+        res = page["banks"][page["active_bank"]][address & 0xff]
         if sign and res > 127:
             return -((res ^ 0xff) + 1)
         return res
 
     def write(self, address, data):
-        self.mem[address] = data
+        page = self.pages[(address & 0xff00) >> 8]
+        page["banks"][page["active_bank"]][address & 0xff] = data
+
+    def get_display(self):
+        pass
