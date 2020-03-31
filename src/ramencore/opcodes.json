@@ -1,1 +1,908 @@
-[{"name": "ADC", "byte": 105, "byte_length": 2, "addressing": "i"}, {"name": "ADC", "byte": 101, "byte_length": 2, "addressing": "z"}, {"name": "ADC", "byte": 117, "byte_length": 2, "addressing": "zx"}, {"name": "ADC", "byte": 109, "byte_length": 3, "addressing": "a"}, {"name": "ADC", "byte": 125, "byte_length": 3, "addressing": "ax"}, {"name": "ADC", "byte": 121, "byte_length": 3, "addressing": "ay"}, {"name": "ADC", "byte": 97, "byte_length": 2, "addressing": "ix"}, {"name": "ADC", "byte": 113, "byte_length": 2, "addressing": "iy"}, {"name": "AND", "byte": 41, "byte_length": 2, "addressing": "i"}, {"name": "AND", "byte": 37, "byte_length": 2, "addressing": "z"}, {"name": "AND", "byte": 53, "byte_length": 2, "addressing": "zx"}, {"name": "AND", "byte": 45, "byte_length": 3, "addressing": "a"}, {"name": "AND", "byte": 61, "byte_length": 3, "addressing": "ax"}, {"name": "AND", "byte": 57, "byte_length": 3, "addressing": "ay"}, {"name": "AND", "byte": 33, "byte_length": 2, "addressing": "ix"}, {"name": "AND", "byte": 49, "byte_length": 2, "addressing": "iy"}, {"name": "ASL", "byte": 10, "byte_length": 1, "addressing": "ac"}, {"name": "ASL", "byte": 6, "byte_length": 2, "addressing": "z"}, {"name": "ASL", "byte": 22, "byte_length": 2, "addressing": "zx"}, {"name": "ASL", "byte": 14, "byte_length": 3, "addressing": "a"}, {"name": "ASL", "byte": 30, "byte_length": 3, "addressing": "ax"}, {"name": "BCC", "byte": 144, "byte_length": 2, "addressing": "r"}, {"name": "BCS", "byte": 176, "byte_length": 2, "addressing": "r"}, {"name": "BEQ", "byte": 240, "byte_length": 2, "addressing": "r"}, {"name": "BIT", "byte": 36, "byte_length": 2, "addressing": "z"}, {"name": "BIT", "byte": 44, "byte_length": 3, "addressing": "a"}, {"name": "BMI", "byte": 48, "byte_length": 2, "addressing": "r"}, {"name": "BNE", "byte": 208, "byte_length": 2, "addressing": "r"}, {"name": "BPL", "byte": 16, "byte_length": 2, "addressing": "r"}, {"name": "BRK", "byte": 0, "byte_length": 1, "addressing": "ip"}, {"name": "BVC", "byte": 80, "byte_length": 2, "addressing": "r"}, {"name": "BVS", "byte": 112, "byte_length": 2, "addressing": "r"}, {"name": "CLC", "byte": 24, "byte_length": 1, "addressing": "ip"}, {"name": "CLD", "byte": 216, "byte_length": 1, "addressing": "ip"}, {"name": "CLI", "byte": 88, "byte_length": 1, "addressing": "ip"}, {"name": "CLV", "byte": 184, "byte_length": 1, "addressing": "ip"}, {"name": "CMP", "byte": 201, "byte_length": 2, "addressing": "i"}, {"name": "CMP", "byte": 197, "byte_length": 2, "addressing": "z"}, {"name": "CMP", "byte": 213, "byte_length": 2, "addressing": "zx"}, {"name": "CMP", "byte": 205, "byte_length": 3, "addressing": "a"}, {"name": "CMP", "byte": 221, "byte_length": 3, "addressing": "ax"}, {"name": "CMP", "byte": 217, "byte_length": 3, "addressing": "ay"}, {"name": "CMP", "byte": 193, "byte_length": 2, "addressing": "ix"}, {"name": "CMP", "byte": 209, "byte_length": 2, "addressing": "iy"}, {"name": "CPX", "byte": 224, "byte_length": 2, "addressing": "i"}, {"name": "CPX", "byte": 228, "byte_length": 2, "addressing": "z"}, {"name": "CPX", "byte": 236, "byte_length": 3, "addressing": "a"}, {"name": "CPY", "byte": 192, "byte_length": 2, "addressing": "i"}, {"name": "CPY", "byte": 196, "byte_length": 2, "addressing": "z"}, {"name": "CPY", "byte": 204, "byte_length": 3, "addressing": "a"}, {"name": "DEC", "byte": 198, "byte_length": 2, "addressing": "z"}, {"name": "DEC", "byte": 214, "byte_length": 2, "addressing": "zx"}, {"name": "DEC", "byte": 206, "byte_length": 3, "addressing": "a"}, {"name": "DEC", "byte": 222, "byte_length": 3, "addressing": "ax"}, {"name": "DEX", "byte": 202, "byte_length": 1, "addressing": "ip"}, {"name": "DEY", "byte": 136, "byte_length": 1, "addressing": "ip"}, {"name": "EOR", "byte": 73, "byte_length": 2, "addressing": "i"}, {"name": "EOR", "byte": 69, "byte_length": 2, "addressing": "z"}, {"name": "EOR", "byte": 85, "byte_length": 2, "addressing": "zx"}, {"name": "EOR", "byte": 77, "byte_length": 3, "addressing": "a"}, {"name": "EOR", "byte": 93, "byte_length": 3, "addressing": "ax"}, {"name": "EOR", "byte": 89, "byte_length": 3, "addressing": "ay"}, {"name": "EOR", "byte": 65, "byte_length": 2, "addressing": "ix"}, {"name": "EOR", "byte": 81, "byte_length": 2, "addressing": "iy"}, {"name": "INC", "byte": 230, "byte_length": 2, "addressing": "z"}, {"name": "INC", "byte": 246, "byte_length": 2, "addressing": "zx"}, {"name": "INC", "byte": 238, "byte_length": 3, "addressing": "a"}, {"name": "INC", "byte": 254, "byte_length": 3, "addressing": "ax"}, {"name": "INX", "byte": 232, "byte_length": 1, "addressing": "ip"}, {"name": "INY", "byte": 200, "byte_length": 1, "addressing": "ip"}, {"name": "JMP", "byte": 76, "byte_length": 3, "addressing": "a"}, {"name": "JMP", "byte": 108, "byte_length": 3, "addressing": "in"}, {"name": "JSR", "byte": 32, "byte_length": 3, "addressing": "a"}, {"name": "LDA", "byte": 169, "byte_length": 2, "addressing": "i"}, {"name": "LDA", "byte": 165, "byte_length": 2, "addressing": "z"}, {"name": "LDA", "byte": 181, "byte_length": 2, "addressing": "zx"}, {"name": "LDA", "byte": 173, "byte_length": 3, "addressing": "a"}, {"name": "LDA", "byte": 189, "byte_length": 3, "addressing": "ax"}, {"name": "LDA", "byte": 185, "byte_length": 3, "addressing": "ay"}, {"name": "LDA", "byte": 161, "byte_length": 2, "addressing": "ix"}, {"name": "LDA", "byte": 177, "byte_length": 2, "addressing": "iy"}, {"name": "LDX", "byte": 162, "byte_length": 2, "addressing": "i"}, {"name": "LDX", "byte": 166, "byte_length": 2, "addressing": "z"}, {"name": "LDX", "byte": 182, "byte_length": 2, "addressing": "zy"}, {"name": "LDX", "byte": 174, "byte_length": 3, "addressing": "a"}, {"name": "LDX", "byte": 190, "byte_length": 3, "addressing": "ay"}, {"name": "LDY", "byte": 160, "byte_length": 2, "addressing": "i"}, {"name": "LDY", "byte": 164, "byte_length": 2, "addressing": "z"}, {"name": "LDY", "byte": 180, "byte_length": 2, "addressing": "zx"}, {"name": "LDY", "byte": 172, "byte_length": 3, "addressing": "a"}, {"name": "LDY", "byte": 188, "byte_length": 3, "addressing": "ax"}, {"name": "LSR", "byte": 74, "byte_length": 1, "addressing": "ac"}, {"name": "LSR", "byte": 70, "byte_length": 2, "addressing": "z"}, {"name": "LSR", "byte": 86, "byte_length": 2, "addressing": "zx"}, {"name": "LSR", "byte": 78, "byte_length": 3, "addressing": "a"}, {"name": "LSR", "byte": 94, "byte_length": 3, "addressing": "ax"}, {"name": "NOP", "byte": 234, "byte_length": 1, "addressing": "ip"}, {"name": "ORA", "byte": 9, "byte_length": 2, "addressing": "i"}, {"name": "ORA", "byte": 5, "byte_length": 2, "addressing": "z"}, {"name": "ORA", "byte": 21, "byte_length": 2, "addressing": "zx"}, {"name": "ORA", "byte": 13, "byte_length": 3, "addressing": "a"}, {"name": "ORA", "byte": 29, "byte_length": 3, "addressing": "ax"}, {"name": "ORA", "byte": 25, "byte_length": 3, "addressing": "ay"}, {"name": "ORA", "byte": 1, "byte_length": 2, "addressing": "ix"}, {"name": "ORA", "byte": 17, "byte_length": 2, "addressing": "iy"}, {"name": "PHA", "byte": 72, "byte_length": 1, "addressing": "ip"}, {"name": "PHP", "byte": 8, "byte_length": 1, "addressing": "ip"}, {"name": "PLA", "byte": 104, "byte_length": 1, "addressing": "ip"}, {"name": "PLP", "byte": 40, "byte_length": 1, "addressing": "ip"}, {"name": "ROL", "byte": 42, "byte_length": 1, "addressing": "ac"}, {"name": "ROL", "byte": 38, "byte_length": 2, "addressing": "z"}, {"name": "ROL", "byte": 54, "byte_length": 2, "addressing": "zx"}, {"name": "ROL", "byte": 46, "byte_length": 3, "addressing": "a"}, {"name": "ROL", "byte": 62, "byte_length": 3, "addressing": "ax"}, {"name": "ROR", "byte": 106, "byte_length": 1, "addressing": "ac"}, {"name": "ROR", "byte": 102, "byte_length": 2, "addressing": "z"}, {"name": "ROR", "byte": 118, "byte_length": 2, "addressing": "zx"}, {"name": "ROR", "byte": 110, "byte_length": 3, "addressing": "a"}, {"name": "ROR", "byte": 126, "byte_length": 3, "addressing": "ax"}, {"name": "RTI", "byte": 64, "byte_length": 1, "addressing": "ip"}, {"name": "RTS", "byte": 96, "byte_length": 1, "addressing": "ip"}, {"name": "SBC", "byte": 233, "byte_length": 2, "addressing": "i"}, {"name": "SBC", "byte": 229, "byte_length": 2, "addressing": "z"}, {"name": "SBC", "byte": 245, "byte_length": 2, "addressing": "zx"}, {"name": "SBC", "byte": 237, "byte_length": 3, "addressing": "a"}, {"name": "SBC", "byte": 253, "byte_length": 3, "addressing": "ax"}, {"name": "SBC", "byte": 249, "byte_length": 3, "addressing": "ay"}, {"name": "SBC", "byte": 225, "byte_length": 2, "addressing": "ix"}, {"name": "SBC", "byte": 241, "byte_length": 2, "addressing": "iy"}, {"name": "SEC", "byte": 56, "byte_length": 1, "addressing": "ip"}, {"name": "SED", "byte": 248, "byte_length": 1, "addressing": "ip"}, {"name": "SEI", "byte": 120, "byte_length": 1, "addressing": "ip"}, {"name": "STA", "byte": 133, "byte_length": 2, "addressing": "z"}, {"name": "STA", "byte": 149, "byte_length": 2, "addressing": "zx"}, {"name": "STA", "byte": 141, "byte_length": 3, "addressing": "a"}, {"name": "STA", "byte": 157, "byte_length": 3, "addressing": "ax"}, {"name": "STA", "byte": 153, "byte_length": 3, "addressing": "ay"}, {"name": "STA", "byte": 129, "byte_length": 2, "addressing": "ix"}, {"name": "STA", "byte": 145, "byte_length": 2, "addressing": "iy"}, {"name": "STX", "byte": 134, "byte_length": 2, "addressing": "z"}, {"name": "STX", "byte": 150, "byte_length": 2, "addressing": "zy"}, {"name": "STX", "byte": 142, "byte_length": 3, "addressing": "a"}, {"name": "STY", "byte": 132, "byte_length": 2, "addressing": "z"}, {"name": "STY", "byte": 148, "byte_length": 2, "addressing": "zx"}, {"name": "STY", "byte": 140, "byte_length": 3, "addressing": "a"}, {"name": "TAX", "byte": 170, "byte_length": 1, "addressing": "ip"}, {"name": "TAY", "byte": 168, "byte_length": 1, "addressing": "ip"}, {"name": "TSX", "byte": 186, "byte_length": 1, "addressing": "ip"}, {"name": "TXA", "byte": 138, "byte_length": 1, "addressing": "ip"}, {"name": "TXS", "byte": 154, "byte_length": 1, "addressing": "ip"}, {"name": "TYA", "byte": 152, "byte_length": 1, "addressing": "ip"}]
+[
+  {
+    "name": "ADC",
+    "byte": 105,
+    "byte_length": 2,
+    "addressing": "i"
+  },
+  {
+    "name": "ADC",
+    "byte": 101,
+    "byte_length": 2,
+    "addressing": "z"
+  },
+  {
+    "name": "ADC",
+    "byte": 117,
+    "byte_length": 2,
+    "addressing": "zx"
+  },
+  {
+    "name": "ADC",
+    "byte": 109,
+    "byte_length": 3,
+    "addressing": "a"
+  },
+  {
+    "name": "ADC",
+    "byte": 125,
+    "byte_length": 3,
+    "addressing": "ax"
+  },
+  {
+    "name": "ADC",
+    "byte": 121,
+    "byte_length": 3,
+    "addressing": "ay"
+  },
+  {
+    "name": "ADC",
+    "byte": 97,
+    "byte_length": 2,
+    "addressing": "ix"
+  },
+  {
+    "name": "ADC",
+    "byte": 113,
+    "byte_length": 2,
+    "addressing": "iy"
+  },
+  {
+    "name": "AND",
+    "byte": 41,
+    "byte_length": 2,
+    "addressing": "i"
+  },
+  {
+    "name": "AND",
+    "byte": 37,
+    "byte_length": 2,
+    "addressing": "z"
+  },
+  {
+    "name": "AND",
+    "byte": 53,
+    "byte_length": 2,
+    "addressing": "zx"
+  },
+  {
+    "name": "AND",
+    "byte": 45,
+    "byte_length": 3,
+    "addressing": "a"
+  },
+  {
+    "name": "AND",
+    "byte": 61,
+    "byte_length": 3,
+    "addressing": "ax"
+  },
+  {
+    "name": "AND",
+    "byte": 57,
+    "byte_length": 3,
+    "addressing": "ay"
+  },
+  {
+    "name": "AND",
+    "byte": 33,
+    "byte_length": 2,
+    "addressing": "ix"
+  },
+  {
+    "name": "AND",
+    "byte": 49,
+    "byte_length": 2,
+    "addressing": "iy"
+  },
+  {
+    "name": "ASL",
+    "byte": 10,
+    "byte_length": 1,
+    "addressing": "ac"
+  },
+  {
+    "name": "ASL",
+    "byte": 6,
+    "byte_length": 2,
+    "addressing": "z"
+  },
+  {
+    "name": "ASL",
+    "byte": 22,
+    "byte_length": 2,
+    "addressing": "zx"
+  },
+  {
+    "name": "ASL",
+    "byte": 14,
+    "byte_length": 3,
+    "addressing": "a"
+  },
+  {
+    "name": "ASL",
+    "byte": 30,
+    "byte_length": 3,
+    "addressing": "ax"
+  },
+  {
+    "name": "BCC",
+    "byte": 144,
+    "byte_length": 2,
+    "addressing": "r"
+  },
+  {
+    "name": "BCS",
+    "byte": 176,
+    "byte_length": 2,
+    "addressing": "r"
+  },
+  {
+    "name": "BEQ",
+    "byte": 240,
+    "byte_length": 2,
+    "addressing": "r"
+  },
+  {
+    "name": "BIT",
+    "byte": 36,
+    "byte_length": 2,
+    "addressing": "z"
+  },
+  {
+    "name": "BIT",
+    "byte": 44,
+    "byte_length": 3,
+    "addressing": "a"
+  },
+  {
+    "name": "BMI",
+    "byte": 48,
+    "byte_length": 2,
+    "addressing": "r"
+  },
+  {
+    "name": "BNE",
+    "byte": 208,
+    "byte_length": 2,
+    "addressing": "r"
+  },
+  {
+    "name": "BPL",
+    "byte": 16,
+    "byte_length": 2,
+    "addressing": "r"
+  },
+  {
+    "name": "BRK",
+    "byte": 0,
+    "byte_length": 1,
+    "addressing": "ip"
+  },
+  {
+    "name": "BVC",
+    "byte": 80,
+    "byte_length": 2,
+    "addressing": "r"
+  },
+  {
+    "name": "BVS",
+    "byte": 112,
+    "byte_length": 2,
+    "addressing": "r"
+  },
+  {
+    "name": "CLC",
+    "byte": 24,
+    "byte_length": 1,
+    "addressing": "ip"
+  },
+  {
+    "name": "CLD",
+    "byte": 216,
+    "byte_length": 1,
+    "addressing": "ip"
+  },
+  {
+    "name": "CLI",
+    "byte": 88,
+    "byte_length": 1,
+    "addressing": "ip"
+  },
+  {
+    "name": "CLV",
+    "byte": 184,
+    "byte_length": 1,
+    "addressing": "ip"
+  },
+  {
+    "name": "CMP",
+    "byte": 201,
+    "byte_length": 2,
+    "addressing": "i"
+  },
+  {
+    "name": "CMP",
+    "byte": 197,
+    "byte_length": 2,
+    "addressing": "z"
+  },
+  {
+    "name": "CMP",
+    "byte": 213,
+    "byte_length": 2,
+    "addressing": "zx"
+  },
+  {
+    "name": "CMP",
+    "byte": 205,
+    "byte_length": 3,
+    "addressing": "a"
+  },
+  {
+    "name": "CMP",
+    "byte": 221,
+    "byte_length": 3,
+    "addressing": "ax"
+  },
+  {
+    "name": "CMP",
+    "byte": 217,
+    "byte_length": 3,
+    "addressing": "ay"
+  },
+  {
+    "name": "CMP",
+    "byte": 193,
+    "byte_length": 2,
+    "addressing": "ix"
+  },
+  {
+    "name": "CMP",
+    "byte": 209,
+    "byte_length": 2,
+    "addressing": "iy"
+  },
+  {
+    "name": "CPX",
+    "byte": 224,
+    "byte_length": 2,
+    "addressing": "i"
+  },
+  {
+    "name": "CPX",
+    "byte": 228,
+    "byte_length": 2,
+    "addressing": "z"
+  },
+  {
+    "name": "CPX",
+    "byte": 236,
+    "byte_length": 3,
+    "addressing": "a"
+  },
+  {
+    "name": "CPY",
+    "byte": 192,
+    "byte_length": 2,
+    "addressing": "i"
+  },
+  {
+    "name": "CPY",
+    "byte": 196,
+    "byte_length": 2,
+    "addressing": "z"
+  },
+  {
+    "name": "CPY",
+    "byte": 204,
+    "byte_length": 3,
+    "addressing": "a"
+  },
+  {
+    "name": "DEC",
+    "byte": 198,
+    "byte_length": 2,
+    "addressing": "z"
+  },
+  {
+    "name": "DEC",
+    "byte": 214,
+    "byte_length": 2,
+    "addressing": "zx"
+  },
+  {
+    "name": "DEC",
+    "byte": 206,
+    "byte_length": 3,
+    "addressing": "a"
+  },
+  {
+    "name": "DEC",
+    "byte": 222,
+    "byte_length": 3,
+    "addressing": "ax"
+  },
+  {
+    "name": "DEX",
+    "byte": 202,
+    "byte_length": 1,
+    "addressing": "ip"
+  },
+  {
+    "name": "DEY",
+    "byte": 136,
+    "byte_length": 1,
+    "addressing": "ip"
+  },
+  {
+    "name": "EOR",
+    "byte": 73,
+    "byte_length": 2,
+    "addressing": "i"
+  },
+  {
+    "name": "EOR",
+    "byte": 69,
+    "byte_length": 2,
+    "addressing": "z"
+  },
+  {
+    "name": "EOR",
+    "byte": 85,
+    "byte_length": 2,
+    "addressing": "zx"
+  },
+  {
+    "name": "EOR",
+    "byte": 77,
+    "byte_length": 3,
+    "addressing": "a"
+  },
+  {
+    "name": "EOR",
+    "byte": 93,
+    "byte_length": 3,
+    "addressing": "ax"
+  },
+  {
+    "name": "EOR",
+    "byte": 89,
+    "byte_length": 3,
+    "addressing": "ay"
+  },
+  {
+    "name": "EOR",
+    "byte": 65,
+    "byte_length": 2,
+    "addressing": "ix"
+  },
+  {
+    "name": "EOR",
+    "byte": 81,
+    "byte_length": 2,
+    "addressing": "iy"
+  },
+  {
+    "name": "INC",
+    "byte": 230,
+    "byte_length": 2,
+    "addressing": "z"
+  },
+  {
+    "name": "INC",
+    "byte": 246,
+    "byte_length": 2,
+    "addressing": "zx"
+  },
+  {
+    "name": "INC",
+    "byte": 238,
+    "byte_length": 3,
+    "addressing": "a"
+  },
+  {
+    "name": "INC",
+    "byte": 254,
+    "byte_length": 3,
+    "addressing": "ax"
+  },
+  {
+    "name": "INX",
+    "byte": 232,
+    "byte_length": 1,
+    "addressing": "ip"
+  },
+  {
+    "name": "INY",
+    "byte": 200,
+    "byte_length": 1,
+    "addressing": "ip"
+  },
+  {
+    "name": "JMP",
+    "byte": 76,
+    "byte_length": 3,
+    "addressing": "a"
+  },
+  {
+    "name": "JMP",
+    "byte": 108,
+    "byte_length": 3,
+    "addressing": "in"
+  },
+  {
+    "name": "JSR",
+    "byte": 32,
+    "byte_length": 3,
+    "addressing": "a"
+  },
+  {
+    "name": "LDA",
+    "byte": 169,
+    "byte_length": 2,
+    "addressing": "i"
+  },
+  {
+    "name": "LDA",
+    "byte": 165,
+    "byte_length": 2,
+    "addressing": "z"
+  },
+  {
+    "name": "LDA",
+    "byte": 181,
+    "byte_length": 2,
+    "addressing": "zx"
+  },
+  {
+    "name": "LDA",
+    "byte": 173,
+    "byte_length": 3,
+    "addressing": "a"
+  },
+  {
+    "name": "LDA",
+    "byte": 189,
+    "byte_length": 3,
+    "addressing": "ax"
+  },
+  {
+    "name": "LDA",
+    "byte": 185,
+    "byte_length": 3,
+    "addressing": "ay"
+  },
+  {
+    "name": "LDA",
+    "byte": 161,
+    "byte_length": 2,
+    "addressing": "ix"
+  },
+  {
+    "name": "LDA",
+    "byte": 177,
+    "byte_length": 2,
+    "addressing": "iy"
+  },
+  {
+    "name": "LDX",
+    "byte": 162,
+    "byte_length": 2,
+    "addressing": "i"
+  },
+  {
+    "name": "LDX",
+    "byte": 166,
+    "byte_length": 2,
+    "addressing": "z"
+  },
+  {
+    "name": "LDX",
+    "byte": 182,
+    "byte_length": 2,
+    "addressing": "zy"
+  },
+  {
+    "name": "LDX",
+    "byte": 174,
+    "byte_length": 3,
+    "addressing": "a"
+  },
+  {
+    "name": "LDX",
+    "byte": 190,
+    "byte_length": 3,
+    "addressing": "ay"
+  },
+  {
+    "name": "LDY",
+    "byte": 160,
+    "byte_length": 2,
+    "addressing": "i"
+  },
+  {
+    "name": "LDY",
+    "byte": 164,
+    "byte_length": 2,
+    "addressing": "z"
+  },
+  {
+    "name": "LDY",
+    "byte": 180,
+    "byte_length": 2,
+    "addressing": "zx"
+  },
+  {
+    "name": "LDY",
+    "byte": 172,
+    "byte_length": 3,
+    "addressing": "a"
+  },
+  {
+    "name": "LDY",
+    "byte": 188,
+    "byte_length": 3,
+    "addressing": "ax"
+  },
+  {
+    "name": "LSR",
+    "byte": 74,
+    "byte_length": 1,
+    "addressing": "ac"
+  },
+  {
+    "name": "LSR",
+    "byte": 70,
+    "byte_length": 2,
+    "addressing": "z"
+  },
+  {
+    "name": "LSR",
+    "byte": 86,
+    "byte_length": 2,
+    "addressing": "zx"
+  },
+  {
+    "name": "LSR",
+    "byte": 78,
+    "byte_length": 3,
+    "addressing": "a"
+  },
+  {
+    "name": "LSR",
+    "byte": 94,
+    "byte_length": 3,
+    "addressing": "ax"
+  },
+  {
+    "name": "NOP",
+    "byte": 234,
+    "byte_length": 1,
+    "addressing": "ip"
+  },
+  {
+    "name": "ORA",
+    "byte": 9,
+    "byte_length": 2,
+    "addressing": "i"
+  },
+  {
+    "name": "ORA",
+    "byte": 5,
+    "byte_length": 2,
+    "addressing": "z"
+  },
+  {
+    "name": "ORA",
+    "byte": 21,
+    "byte_length": 2,
+    "addressing": "zx"
+  },
+  {
+    "name": "ORA",
+    "byte": 13,
+    "byte_length": 3,
+    "addressing": "a"
+  },
+  {
+    "name": "ORA",
+    "byte": 29,
+    "byte_length": 3,
+    "addressing": "ax"
+  },
+  {
+    "name": "ORA",
+    "byte": 25,
+    "byte_length": 3,
+    "addressing": "ay"
+  },
+  {
+    "name": "ORA",
+    "byte": 1,
+    "byte_length": 2,
+    "addressing": "ix"
+  },
+  {
+    "name": "ORA",
+    "byte": 17,
+    "byte_length": 2,
+    "addressing": "iy"
+  },
+  {
+    "name": "PHA",
+    "byte": 72,
+    "byte_length": 1,
+    "addressing": "ip"
+  },
+  {
+    "name": "PHP",
+    "byte": 8,
+    "byte_length": 1,
+    "addressing": "ip"
+  },
+  {
+    "name": "PLA",
+    "byte": 104,
+    "byte_length": 1,
+    "addressing": "ip"
+  },
+  {
+    "name": "PLP",
+    "byte": 40,
+    "byte_length": 1,
+    "addressing": "ip"
+  },
+  {
+    "name": "ROL",
+    "byte": 42,
+    "byte_length": 1,
+    "addressing": "ac"
+  },
+  {
+    "name": "ROL",
+    "byte": 38,
+    "byte_length": 2,
+    "addressing": "z"
+  },
+  {
+    "name": "ROL",
+    "byte": 54,
+    "byte_length": 2,
+    "addressing": "zx"
+  },
+  {
+    "name": "ROL",
+    "byte": 46,
+    "byte_length": 3,
+    "addressing": "a"
+  },
+  {
+    "name": "ROL",
+    "byte": 62,
+    "byte_length": 3,
+    "addressing": "ax"
+  },
+  {
+    "name": "ROR",
+    "byte": 106,
+    "byte_length": 1,
+    "addressing": "ac"
+  },
+  {
+    "name": "ROR",
+    "byte": 102,
+    "byte_length": 2,
+    "addressing": "z"
+  },
+  {
+    "name": "ROR",
+    "byte": 118,
+    "byte_length": 2,
+    "addressing": "zx"
+  },
+  {
+    "name": "ROR",
+    "byte": 110,
+    "byte_length": 3,
+    "addressing": "a"
+  },
+  {
+    "name": "ROR",
+    "byte": 126,
+    "byte_length": 3,
+    "addressing": "ax"
+  },
+  {
+    "name": "RTI",
+    "byte": 64,
+    "byte_length": 1,
+    "addressing": "ip"
+  },
+  {
+    "name": "RTS",
+    "byte": 96,
+    "byte_length": 1,
+    "addressing": "ip"
+  },
+  {
+    "name": "SBC",
+    "byte": 233,
+    "byte_length": 2,
+    "addressing": "i"
+  },
+  {
+    "name": "SBC",
+    "byte": 229,
+    "byte_length": 2,
+    "addressing": "z"
+  },
+  {
+    "name": "SBC",
+    "byte": 245,
+    "byte_length": 2,
+    "addressing": "zx"
+  },
+  {
+    "name": "SBC",
+    "byte": 237,
+    "byte_length": 3,
+    "addressing": "a"
+  },
+  {
+    "name": "SBC",
+    "byte": 253,
+    "byte_length": 3,
+    "addressing": "ax"
+  },
+  {
+    "name": "SBC",
+    "byte": 249,
+    "byte_length": 3,
+    "addressing": "ay"
+  },
+  {
+    "name": "SBC",
+    "byte": 225,
+    "byte_length": 2,
+    "addressing": "ix"
+  },
+  {
+    "name": "SBC",
+    "byte": 241,
+    "byte_length": 2,
+    "addressing": "iy"
+  },
+  {
+    "name": "SEC",
+    "byte": 56,
+    "byte_length": 1,
+    "addressing": "ip"
+  },
+  {
+    "name": "SED",
+    "byte": 248,
+    "byte_length": 1,
+    "addressing": "ip"
+  },
+  {
+    "name": "SEI",
+    "byte": 120,
+    "byte_length": 1,
+    "addressing": "ip"
+  },
+  {
+    "name": "STA",
+    "byte": 133,
+    "byte_length": 2,
+    "addressing": "z"
+  },
+  {
+    "name": "STA",
+    "byte": 149,
+    "byte_length": 2,
+    "addressing": "zx"
+  },
+  {
+    "name": "STA",
+    "byte": 141,
+    "byte_length": 3,
+    "addressing": "a"
+  },
+  {
+    "name": "STA",
+    "byte": 157,
+    "byte_length": 3,
+    "addressing": "ax"
+  },
+  {
+    "name": "STA",
+    "byte": 153,
+    "byte_length": 3,
+    "addressing": "ay"
+  },
+  {
+    "name": "STA",
+    "byte": 129,
+    "byte_length": 2,
+    "addressing": "ix"
+  },
+  {
+    "name": "STA",
+    "byte": 145,
+    "byte_length": 2,
+    "addressing": "iy"
+  },
+  {
+    "name": "STX",
+    "byte": 134,
+    "byte_length": 2,
+    "addressing": "z"
+  },
+  {
+    "name": "STX",
+    "byte": 150,
+    "byte_length": 2,
+    "addressing": "zy"
+  },
+  {
+    "name": "STX",
+    "byte": 142,
+    "byte_length": 3,
+    "addressing": "a"
+  },
+  {
+    "name": "STY",
+    "byte": 132,
+    "byte_length": 2,
+    "addressing": "z"
+  },
+  {
+    "name": "STY",
+    "byte": 148,
+    "byte_length": 2,
+    "addressing": "zx"
+  },
+  {
+    "name": "STY",
+    "byte": 140,
+    "byte_length": 3,
+    "addressing": "a"
+  },
+  {
+    "name": "TAX",
+    "byte": 170,
+    "byte_length": 1,
+    "addressing": "ip"
+  },
+  {
+    "name": "TAY",
+    "byte": 168,
+    "byte_length": 1,
+    "addressing": "ip"
+  },
+  {
+    "name": "TSX",
+    "byte": 186,
+    "byte_length": 1,
+    "addressing": "ip"
+  },
+  {
+    "name": "TXA",
+    "byte": 138,
+    "byte_length": 1,
+    "addressing": "ip"
+  },
+  {
+    "name": "TXS",
+    "byte": 154,
+    "byte_length": 1,
+    "addressing": "ip"
+  },
+  {
+    "name": "TYA",
+    "byte": 152,
+    "byte_length": 1,
+    "addressing": "ip"
+  }
+]

@@ -1,14 +1,18 @@
 from PIL import Image, ImageDraw, ImageFont
 
-screen = Image.new("RGB", (240, 240))
+screen = [0] * (240 * 240 * 2)
 
 
 class Memory:
-    display_page = 0
-    pages = [{
-        "banks": [[0] * 0x100] * 0xff,
-        "active_bank": 0
-    }] * 0x100
+    display_page = 0xfd
+    pages = []
+
+    def __init__(self):
+        for _ in range(0xff):
+            self.pages.append({
+                "banks": [[0] * 0x100] * 0xff,
+                "active_bank": 0
+            })
 
     def read(self, address, sign=False):
         page = self.pages[(address & 0xff00) >> 8]
@@ -27,6 +31,8 @@ class Memory:
         for i in range(0xe1):
             bank = screen_page["banks"][i]
             for byte in bank:
-                screen.putpixel((pixels_plotted % 240, pixels_plotted // 240), 0xff)
-                pixels_plotted += 1
-        display.ShowImage(screen, 0, 0)
+                word = byte * 257
+                screen[pixels_plotted] = word & 0xff
+                screen[pixels_plotted + 1] = (word & 0xff00) >> 8
+                pixels_plotted += 2
+        display.write_array(screen)

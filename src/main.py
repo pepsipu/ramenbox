@@ -34,10 +34,10 @@ display = ST7789.ST7789(SPI.SpiDev(0, 0))
 cpu = CPU(display)
 welcome.welcome_msg(display)
 
-program = "\xa9\x01\x85\xff"
+program = "\xa9\x01\xff\12"
 for i, byte in enumerate(program):
     cpu.mem.write(i, ord(byte))
-debug = True
+debug = False
 while True:
     if debug:
         cmd = input()

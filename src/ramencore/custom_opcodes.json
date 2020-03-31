@@ -1,67 +1,67 @@
 [
   {
     "name": "PSA",
-    "byte": 1,
+    "byte": 0,
     "byte_length": 2,
     "addressing": "i"
   },
   {
     "name": "PSA",
-    "byte": 2,
+    "byte": 1,
     "byte_length": 3,
     "addressing": "ix"
+  },
+  {
+    "name": "PSX",
+    "byte": 2,
+    "byte_length": 3,
+    "addressing": "i"
   },
   {
     "name": "PSX",
     "byte": 3,
     "byte_length": 3,
-    "addressing": "i"
+    "addressing": "ix"
   },
   {
-    "name": "PSX",
+    "name": "PSY",
     "byte": 4,
-    "byte_length": 3,
-    "addressing": "ix"
+    "byte_length": 2,
+    "addressing": "i"
   },
   {
     "name": "PSY",
     "byte": 5,
-    "byte_length": 2,
-    "addressing": "i"
-  },
-  {
-    "name": "PSY",
-    "byte": 6,
     "byte_length": 3,
     "addressing": "ix"
+  },
+  {
+    "name": "PXY",
+    "byte": 6,
+    "byte_length": 2,
+    "addressing": "i"
   },
   {
     "name": "PXY",
     "byte": 7,
-    "byte_length": 2,
-    "addressing": "i"
-  },
-  {
-    "name": "PXY",
-    "byte": 8,
     "byte_length": 3,
     "addressing": "ix"
   },
   {
     "name": "SDP",
-    "byte": 9,
+    "byte": 8,
     "byte_length": 2,
     "addressing": "i"
   },
   {
     "name": "SDP",
-    "byte": 10,
+    "byte": 9,
     "byte_length": 3,
     "addressing": "ix"
   },
   {
     "name": "TDB",
-    "byte": 11,
+    "byte": 10,
     "byte_length": 1,
     "addressing": "ip"
   }

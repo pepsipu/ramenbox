@@ -138,7 +138,7 @@ class ST7789(object):
 
         self.command(0x2C)
 
-    def ShowImage(self, Image, Xstart, Ystart):
+    def ShowImage(self, Image, Xstart, Ystart, is_image=True):
         """Set buffer to value of Python Imaging Library image."""
         """Write display buffer to physical display"""
         imwidth, imheight = Image.size
@@ -154,6 +154,12 @@ class ST7789(object):
         GPIO.output(self._dc, GPIO.HIGH)
         for i in range(0, len(pix), 4096):
             self._spi.writebytes(pix[i:i + 4096])
+
+    def write_array(self, arr):
+        self.SetWindows(0, 0, 240, 240)
+        GPIO.output(self._dc, GPIO.HIGH)
+        for i in range(0, len(arr), 4096):
+            self._spi.writebytes(arr[i:i + 4096])
 
     def clear(self):
         """Clear contents of image buffer"""
