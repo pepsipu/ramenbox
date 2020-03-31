@@ -30,8 +30,8 @@ for i in list(inputs.keys()):
     GPIO.setup(i, GPIO.IN, pull_up_down=GPIO.PUD_UP)
     GPIO.add_event_detect(i, GPIO.RISING, callback=button_down)
 
-cpu = CPU()
 display = ST7789.ST7789(SPI.SpiDev(0, 0))
+cpu = CPU(display)
 welcome.welcome_msg(display)
 
 program = "\xa9\x01\x85\xff"

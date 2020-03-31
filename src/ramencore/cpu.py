@@ -14,7 +14,8 @@ class CPU:
     ops = {}
     custom_ops = {}
 
-    def __init__(self):
+    def __init__(self, display):
+        self.display = display
         op_list = json.load(open("./ramencore/opcodes.json", "r"))
         for op in op_list:
             self.ops[op["byte"]] = {

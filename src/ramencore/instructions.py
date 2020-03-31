@@ -362,9 +362,10 @@ def _tya(cpu, data):
 # custom ramenbox ops
 
 # transfer display buffer (TDB)
-# reads display buffer (0xc5ff - 0x
+# reads e1 banks from the specified page.
+# page is specified using sdp instruction
 def _tdb(cpu, data):
-    pass
+    cpu.mem.display(cpu.display)
 
 
 # set display page index as specified data (immediate or indirect x)
@@ -384,6 +385,7 @@ def _psa(cpu, data):
         cpu.sr |= 0x1
     else:
         cpu.mem.pages[cpu.ac]["active_bank"] = data
+        cpu.sr &= 0xfe
 
 
 # bank swap using x
@@ -392,6 +394,7 @@ def _psx(cpu, data):
         cpu.sr |= 0x1
     else:
         cpu.mem.pages[cpu.y]["active_bank"] = data
+        cpu.sr &= 0xfe
 
 
 # bank swap using y
@@ -400,6 +403,7 @@ def _psy(cpu, data):
         cpu.sr |= 0x1
     else:
         cpu.mem.pages[cpu.y]["active_bank"] = data
+        cpu.sr &= 0xfe
 
 
 # bank swap using x and y
@@ -408,3 +412,4 @@ def _pxy(cpu, data):
         cpu.sr |= 0x1
     else:
         cpu.mem.pages[cpu.x]["active_bank"] = cpu.y
+        cpu.sr &= 0xfe
