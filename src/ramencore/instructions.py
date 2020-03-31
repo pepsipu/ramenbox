@@ -367,26 +367,44 @@ def _tdb(cpu, data):
     pass
 
 
-# page swapping
+# set display page index as specified data (immediate or indirect x)
+def _sdp(cpu, data):
+    cpu.mem.display_page = data
+
+
+#
+# bank swapping
 # page selection: specified register
-# bank selection: data (can be set as an immediate value or absolute value)
-# in pxy, page swapping addressing is implied as it uses x for the page selection and y for the bank selection
+# bank selection: data (can be set as an immediate value or indirect x)
+# in pxy, bank swapping addressing is implied as it uses x for the page selection and y for the bank selection
 
-# page swap using accumulator
+# bank swap using accumulator
 def _psa(cpu, data):
-    cpu.mem.pages[cpu.ac]["active_bank"] = data
+    if data > 0x80:
+        cpu.sr |= 0x1
+    else:
+        cpu.mem.pages[cpu.ac]["active_bank"] = data
 
 
-# page swap using x
+# bank swap using x
 def _psx(cpu, data):
-    cpu.mem.pages[cpu.y]["active_bank"] = data
+    if data > 0x80:
+        cpu.sr |= 0x1
+    else:
+        cpu.mem.pages[cpu.y]["active_bank"] = data
 
 
-# page swap using y
+# bank swap using y
 def _psy(cpu, data):
-    cpu.mem.pages[cpu.y]["active_bank"] = data
+    if data > 0x80:
+        cpu.sr |= 0x1
+    else:
+        cpu.mem.pages[cpu.y]["active_bank"] = data
 
 
-# page swap using x and y
+# bank swap using x and y
 def _pxy(cpu, data):
-    cpu.mem.pages[cpu.x]["active_bank"] = cpu.y
+    if data > 0x80:
+        cpu.sr |= 0x1
+    else:
+        cpu.mem.pages[cpu.x]["active_bank"] = cpu.y

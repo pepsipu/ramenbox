@@ -8,7 +8,7 @@
     "name": "PSA",
     "byte": 2,
     "byte_length": 3,
-    "addressing": "a"
+    "addressing": "ix"
   },  {
     "name": "PSX",
     "byte": 3,
@@ -18,7 +18,7 @@
     "name": "PSX",
     "byte": 4,
     "byte_length": 3,
-    "addressing": "a"
+    "addressing": "ix"
   },  {
     "name": "PSY",
     "byte": 5,
@@ -28,7 +28,7 @@
     "name": "PSY",
     "byte": 6,
     "byte_length": 3,
-    "addressing": "a"
+    "addressing": "ix"
   },  {
     "name": "PXY",
     "byte": 7,
@@ -38,6 +38,6 @@
     "name": "PXY",
     "byte": 8,
     "byte_length": 3,
-    "addressing": "a"
+    "addressing": "ix"
   }
 ]

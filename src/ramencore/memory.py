@@ -1,4 +1,5 @@
 class Memory:
+    display_page = 0
     pages = [{
         "banks": [[0] * 0x100] * 0x80,
         "active_bank": 0
