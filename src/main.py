@@ -33,6 +33,8 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
 display = ST7789.ST7789(SPI.SpiDev(0, 0))
+display.init()
+display.clear()
 cpu = CPU(display)
 
 
@@ -44,17 +46,21 @@ for i in list(inputs.keys()):
     GPIO.setup(i, GPIO.IN, pull_up_down=GPIO.PUD_UP)
     GPIO.add_event_detect(i, GPIO.RISING, callback=button_down)
 
-display = ST7789.ST7789(SPI.SpiDev(0, 0))
-display.init()
-display.clear()
-cpu = CPU(display)
+
 # welcome.welcome_msg(display)
 
+
+# load firmware & program right before program code (0x4000) and jmp to it
+firmware = open("./firmware/firmware.bin", "rb").read()
+firmware_location = 0x4000 - len(firmware)
+for i, byte in enumerate(firmware):
+    cpu.mem.write(i + firmware_location, byte)
 program = open(sys.argv[1], "rb").read()
 for i, byte in enumerate(program):
     cpu.mem.write(i + 0x4000, byte)
+cpu.pc = firmware_location
+
 debug = False
-cpu.pc = 0x4000
 while True:
     if debug:
         cmd = input("> ")

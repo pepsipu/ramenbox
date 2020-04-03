@@ -85,7 +85,7 @@ def _bne(cpu, data):
 
 def _bpl(cpu, data):
     if not (cpu.sr & 0x80):
-        cpu.pc = cpu.pc + data
+        cpu.pc = data
 
 
 def _brk(cpu, data):
@@ -94,12 +94,12 @@ def _brk(cpu, data):
 
 def _bvc(cpu, data):
     if not (cpu.sr & 0x40):
-        cpu.pc = cpu.pc + data
+        cpu.pc = data
 
 
 def _bvs(cpu, data):
     if cpu.sr & 0x40:
-        cpu.pc = cpu.pc + data
+        cpu.pc = data
 
 
 def _clc(cpu, data):
