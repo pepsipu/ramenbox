@@ -3,9 +3,6 @@ from PIL import Image, ImageDraw, ImageFont
 
 
 def welcome_msg(display):
-    display.init()
-    display.clear()
-
     title = "ramenbox"
     author = "pepsipu"
 

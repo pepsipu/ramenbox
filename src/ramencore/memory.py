@@ -1,11 +1,10 @@
-from PIL import Image, ImageDraw, ImageFont
-
 screen = [0] * (240 * 240 * 2)
 
 
 class Memory:
     display_page = 0xfd
     pages = []
+    io_byte = 0
 
     def __init__(self):
         for _ in range(0xff):
@@ -15,10 +14,12 @@ class Memory:
             })
 
     def read(self, address, sign=False):
+        if address == 0xee00:
+            return self.io_byte
         page = self.pages[(address & 0xff00) >> 8]
         res = page["banks"][page["active_bank"]][address & 0xff]
         if sign and res > 127:
-            return -((res ^ 0xff) + 1)
+            return -((res ^ 0xff) - 1)
         return res
 
     def write(self, address, data):

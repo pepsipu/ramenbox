@@ -56,17 +56,17 @@ def _asl(cpu, data):
 
 def _bcc(cpu, data):
     if not (cpu.sr & 0x1):
-        cpu.pc = cpu.pc + data
+        cpu.pc = data
 
 
 def _bcs(cpu, data):
     if cpu.sr & 0x1:
-        cpu.pc = cpu.pc + data
+        cpu.pc = data
 
 
 def _beq(cpu, data):
     if cpu.sr & 0x2:
-        cpu.pc = cpu.pc + data
+        cpu.pc = data
 
 
 def _bit(cpu, data):
@@ -75,12 +75,12 @@ def _bit(cpu, data):
 
 def _bmi(cpu, data):
     if cpu.sr & 0x80:
-        cpu.pc = cpu.pc + data
+        cpu.pc = data
 
 
 def _bne(cpu, data):
     if not (cpu.sr & 0x2):
-        cpu.pc = cpu.pc + data
+        cpu.pc = data
 
 
 def _bpl(cpu, data):
@@ -148,12 +148,14 @@ def _dec(cpu, data):
 
 def _dex(cpu, data):
     res = cpu.x - 1
+    cpu.x = res
     set_carry(cpu, res)
     set_zero(cpu, res)
 
 
 def _dey(cpu, data):
     res = cpu.y - 1
+    cpu.y = res
     set_carry(cpu, res)
     set_zero(cpu, res)
 
@@ -174,12 +176,14 @@ def _inc(cpu, data):
 
 def _inx(cpu, data):
     res = cpu.x + 1
+    cpu.x = res
     set_carry(cpu, res)
     set_zero(cpu, res)
 
 
 def _iny(cpu, data):
     res = cpu.y + 1
+    cpu.y = res
     set_carry(cpu, res)
     set_zero(cpu, res)
 

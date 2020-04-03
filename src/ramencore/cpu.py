@@ -73,11 +73,11 @@ class CPU:
         elif instruction["addressing"] == "ay":
             data = self.mem.read(self.pc + 1) + (self.mem.read(self.pc + 2) << 8) + self.y
         elif instruction["addressing"] == "ix":
-            new_address = self.x + (self.mem.read(self.pc + 2) << 8)
-            data = self.mem.read(new_address) + self.mem.read(new_address + 1) << 8
+            page_zero_index = self.mem.read(self.pc + 1) + self.x
+            data = self.mem.read(page_zero_index) + (self.mem.read(page_zero_index + 1) << 8)
         elif instruction["addressing"] == "iy":
-            data = self.mem.read(self.mem.read(self.pc + 2)) + (
-                    self.mem.read(self.mem.read(self.pc + 2) + 1) << 8) + self.y
+            page_zero_index = self.mem.read(self.pc + 1)
+            data = self.mem.read(page_zero_index) + (self.mem.read(page_zero_index + 1) << 8) + self.y
         self.pc += instruction["bytes"]
         instruction["func"](self, data)
         print(self)
