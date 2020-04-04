@@ -31,10 +31,10 @@ def welcome_msg(display):
     # of the text area once more and offset that by the title's height
     loading_canvas.text((display.width / 2 - author_width / 2, text_area_pos + title_height), author, font=author_font,
                         fill=(86, 135, 9, 255))
-    display.ShowImage(loading_menu, 0, 0)
+    display.ShowImage(loading_menu)
     time.sleep(1.5)
 
     # fade image to black by multiplying each pixel by .7
     for _ in range(7):
         loading_menu = loading_menu.point(lambda p: p * .55)
-        display.ShowImage(loading_menu, 0, 0)
+        display.ShowImage(loading_menu)

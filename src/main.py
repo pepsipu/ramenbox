@@ -4,7 +4,8 @@ import ST7789
 from ramencore.cpu import CPU
 import sys
 import time
-
+from PIL import Image
+import math
 import RPi.GPIO as GPIO
 
 inputs_name = {
@@ -35,24 +36,30 @@ GPIO.setwarnings(False)
 display = ST7789.ST7789(SPI.SpiDev(0, 0))
 display.init()
 display.clear()
-cpu = CPU(display)
-
-
-def button_down(button):
-    print(inputs_name[button])
-    cpu.mem.io_byte ^= inputs[button]
-
+debug = False
+cpu = CPU(display, debug=debug)
 
 for i in list(inputs.keys()):
     GPIO.setup(i, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-    # GPIO.add_event_detect(i, GPIO.RISING, callback=button_down)
 
-
-# welcome.welcome_msg(display)
+welcome.welcome_msg(display)
 
 
 # load firmware & program right before program code (0x4000) and jmp to it
 firmware = open("./firmware/firmware.bin", "rb").read()
+
+# backgrounds can be large
+# added option so that way you can load in the background before runtime
+if len(sys.argv) > 2:
+    background = Image.open(sys.argv[2])
+    img = display.ShowImage(background)
+    page = cpu.mem.pages[cpu.mem.display_page]
+    pixels = 0
+    for i in range(240 * 240):
+        x = (img[pixels] + (img[pixels + 1] >> 8))
+        page["banks"][(i & 0xff00) >> 8][i & 0xff] = (img[pixels] + (img[pixels + 1] >> 8))
+        pixels += 2
+
 firmware_location = 0x4000 - len(firmware)
 for i, byte in enumerate(firmware):
     cpu.mem.write(i + firmware_location, byte)
@@ -61,7 +68,6 @@ for i, byte in enumerate(program):
     cpu.mem.write(i + 0x4000, byte)
 cpu.pc = firmware_location
 
-debug = True
 while True:
     if debug:
         cmd = input("> ")

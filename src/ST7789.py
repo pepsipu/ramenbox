@@ -20,7 +20,7 @@ class ST7789(object):
         GPIO.output(self._bl, GPIO.HIGH)
         # Initialize SPI
         self._spi = spi
-        self._spi.max_speed_hz = 40000000
+        self._spi.max_speed_hz = 20000000
 
     """    Write register address and data     """
 
@@ -138,7 +138,7 @@ class ST7789(object):
 
         self.command(0x2C)
 
-    def ShowImage(self, Image, Xstart, Ystart, is_image=True):
+    def ShowImage(self, Image):
         """Set buffer to value of Python Imaging Library image."""
         """Write display buffer to physical display"""
         imwidth, imheight = Image.size

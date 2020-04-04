@@ -189,7 +189,6 @@ def _iny(cpu, data):
 
 
 def _jmp(cpu, data):
-    print(data)
     cpu.pc = data
 
 
@@ -208,12 +207,16 @@ def _lda(cpu, data):
 
 
 def _ldx(cpu, data):
+    if cpu.current_addr_mode == "a":
+        data = cpu.mem.read(data)
     cpu.x = data
     set_zero(cpu, data)
     set_negative(cpu, data)
 
 
 def _ldy(cpu, data):
+    if cpu.current_addr_mode == "a":
+        data = cpu.mem.read(data)
     cpu.y = data
     set_zero(cpu, data)
     set_negative(cpu, data)
@@ -298,12 +301,8 @@ def _rts(cpu, data):
 
 
 def _sbc(cpu, data):
-    res = data - cpu.ac - (cpu.sr & 0x1)
-    set_carry(cpu, res)
-    set_zero(cpu, res)
-    set_negative(cpu, res)
-    set_overflow(cpu, res, (data, cpu.ac))
-    cpu.ac = res & 0xff
+    # this will be fixed soon:tm:, temporary fix
+    cpu.ac -= data
 
 
 def _sec(cpu, data):
@@ -426,21 +425,21 @@ def _pxy(cpu, data):
 # use x register as x point and y register as y point
 # data will be the byte to plot
 def _dxy(cpu, data):
-    page = cpu.mem.pages[cpu.display_page]
+    page = cpu.mem.pages[cpu.mem.display_page]
     ptr = cpu.x + cpu.y * 240
     page["banks"][(ptr & 0xff00) >> 8][ptr & 0xff] = data
 
 
 # draw pixel with accumulator
 def _dpa(cpu, data):
-    page = cpu.mem.pages[cpu.display_page]
+    page = cpu.mem.pages[cpu.mem.display_page]
     ptr = cpu.x + cpu.y * 240
     page["banks"][(ptr & 0xff00) >> 8][ptr & 0xff] = cpu.ac
 
 
 # draw pixel with linear position
 def _dpl(cpu, data):
-    page = cpu.mem.pages[cpu.display_page]
+    page = cpu.mem.pages[cpu.mem.display_page]
     page["banks"][(data & 0xff00) >> 8][data & 0xff] = cpu.ac
 
 
@@ -448,6 +447,14 @@ def _dpl(cpu, data):
 # x and y registers are x and y coords
 # stores pixel in accumulator
 def _rpd(cpu, data):
-    page = cpu.mem.pages[cpu.display_page]
+    page = cpu.mem.pages[cpu.mem.display_page]
     ptr = cpu.x + cpu.y * 240
     cpu.ac = page["banks"][(ptr & 0xff00) >> 8][ptr & 0xff]
+
+
+# background to buffer
+# data is ptr to image buffer
+def _btb(cpu, data):
+    for i in range(240 * 240):
+        page = cpu.mem.pages[cpu.mem.display_page]
+        page["banks"][(i & 0xff00) >> 8][i & 0xff] = cpu.mem.read(data + i)

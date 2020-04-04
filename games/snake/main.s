@@ -1,5 +1,11 @@
 	.org $4000
 game_loop:
+	; restore cursor to orgional byte
+	ldx x_pos
+	ldy y_pos
+	lda cursor_save
+	.byte $ff ; draw pixel with accumulator
+	.byte 13
 	lda $ee00
 	cmp #2
 	beq left_stick
@@ -9,19 +15,43 @@ game_loop:
 	beq down_stick
 	cmp #16
 	beq up_stick
-	jmp game_loop
+	jmp draw_cursor
 left_stick:
-	dec x_pos
-	jmp game_loop
+	lda x_pos
+	sbc #5
+	sta x_pos
+	jmp draw_cursor
 right_stick:
-	inc x_pos
-	jmp game_loop
+	lda x_pos
+	adc #5
+	sta x_pos
+	jmp draw_cursor
 up_stick:
-	inc y_pos
-	jmp game_loop
+	lda y_pos
+	sbc #5
+	sta y_pos
+	jmp draw_cursor
 down_stick:
-	dec y_pos
-	jmp game_loop
+	lda y_pos
+	adc #5
+	sta y_pos
 
-x_pos: .byte 00
-y_pos: .byte 00
+draw_cursor:
+	.byte $ff ; save byte before we overwrite it with cursor
+	.byte 16
+	sta cursor_save
+
+	ldx x_pos
+	ldy y_pos
+	.byte $ff ; write 0xff on x and y pos
+	.byte 11
+	.byte $ff
+
+	.byte $ff ; transfer to display
+	.byte 10
+	; after this we will restore the byte that the cursor overwrote
+	jmp game_loop
+x_pos: .byte 10
+y_pos: .byte 10
+cursor_save: .byte 00
+maze:

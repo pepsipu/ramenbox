@@ -1,38 +1,52 @@
 Sections:
 section seg4000 (attr=<acrwx> align=1):
     4000: symbol: game_loop EXPR(16384=0x4000) ABS 
-    4000: data(3): ad 00 ee 
-    4003: data(2): c9 02 
-    4005: data(2): f0 0c 
-    4007: data(2): c9 04 
-    4009: data(2): f0 0e 
-    400b: data(2): c9 08 
-    400d: data(2): f0 16 
-    400f: data(2): c9 10 
-    4011: data(2): f0 0c 
-    4013: symbol: left_stick EXPR(16403=0x4013) ABS 
-    4013: data(3): ce 2b 40 
-    4016: data(3): 4c 00 40 
-    4019: symbol: right_stick EXPR(16409=0x4019) ABS 
-    4019: data(3): ee 2b 40 
-    401c: data(3): 4c 00 40 
-    401f: symbol: up_stick EXPR(16415=0x401f) ABS 
-    401f: data(3): ee 2c 40 
-    4022: data(3): 4c 00 40 
-    4025: symbol: down_stick EXPR(16421=0x4025) ABS 
-    4025: data(3): ce 2c 40 
-    4028: data(3): 4c 00 40 
-    402b: symbol: x_pos EXPR(16427=0x402b) ABS 
-    402b: data(1): 00 
-    402c: symbol: y_pos EXPR(16428=0x402c) ABS 
-    402c: data(1): 00 
+    4000: data(3): ae 3e 40 
+    4003: data(3): ac 3f 40 
+    4006: data(3): ad 40 40 
+    4009: data(1): ff 
+    400a: data(1): 0d 
+    400b: data(3): ad 00 ee 
+    400e: data(2): c9 02 
+    4010: data(2): f0 0f 
+    4012: data(2): c9 04 
+    4014: data(2): f0 11 
+    4016: data(2): c9 08 
+    4018: data(2): f0 19 
+    401a: data(2): c9 10 
+    401c: data(2): f0 0f 
+    401e: data(3): 4c 00 40 
+    4021: symbol: left_stick EXPR(16417=0x4021) ABS 
+    4021: data(3): ce 3e 40 
+    4024: data(3): 4c 00 40 
+    4027: symbol: right_stick EXPR(16423=0x4027) ABS 
+    4027: data(3): ee 3e 40 
+    402a: data(3): 4c 00 40 
+    402d: symbol: up_stick EXPR(16429=0x402d) ABS 
+    402d: data(3): ee 3f 40 
+    4030: data(3): 4c 00 40 
+    4033: symbol: down_stick EXPR(16435=0x4033) ABS 
+    4033: data(3): ce 3f 40 
+    4036: data(3): 4c 00 40 
+    4039: symbol: draw_cursor EXPR(16441=0x4039) UNUSED ABS 
+    4039: data(1): ff 
+    403a: data(1): 10 
+    403b: data(3): 8d 40 40 
+    403e: symbol: x_pos EXPR(16446=0x403e) ABS 
+    403e: data(1): 00 
+    403f: symbol: y_pos EXPR(16447=0x403f) ABS 
+    403f: data(1): 00 
+    4040: symbol: cursor_save EXPR(16448=0x4040) ABS 
+    4040: data(1): 00 
 Symbols:
-y_pos EXPR(16428=0x402c) ABS 
-x_pos EXPR(16427=0x402b) ABS 
-up_stick EXPR(16415=0x401f) ABS 
-down_stick EXPR(16421=0x4025) ABS 
-right_stick EXPR(16409=0x4019) ABS 
-left_stick EXPR(16403=0x4013) ABS 
+draw_cursor EXPR(16441=0x4039) UNUSED ABS 
+up_stick EXPR(16429=0x402d) ABS 
+down_stick EXPR(16435=0x4033) ABS 
+right_stick EXPR(16423=0x4027) ABS 
+left_stick EXPR(16417=0x4021) ABS 
+cursor_save EXPR(16448=0x4040) ABS 
+y_pos EXPR(16447=0x403f) ABS 
+x_pos EXPR(16446=0x403e) ABS 
 game_loop EXPR(16384=0x4000) ABS 
 __RPTCNT EXPR(-1=0xffff) INTERNAL 
 __VASM EXPR(0=0x0) INTERNAL 

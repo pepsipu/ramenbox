@@ -9,7 +9,7 @@ class Memory:
     def __init__(self):
         for _ in range(0xff):
             self.pages.append({
-                "banks": [[0] * 0x100] * 0xff,
+                "banks": [[0] * 0x100 for _ in range(0xff)],
                 "active_bank": 0
             })
 

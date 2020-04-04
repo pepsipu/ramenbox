@@ -26,7 +26,8 @@ class CPU:
     ops = {}
     custom_ops = {}
 
-    def __init__(self, display):
+    def __init__(self, display, debug=False):
+        self.debug = debug
         self.current_addr_mode = ""
         self.display = display
         op_list = json.load(open("./ramencore/opcodes.json", "r"))
@@ -65,9 +66,10 @@ class CPU:
             instruction = self.custom_ops[self.mem.read(self.pc)]
         else:
             instruction = self.ops[byte]
-        dump = ""
-        for i in range(instruction["bytes"]):
-            dump += hex(self.mem.read(self.pc + i)) + " "
+        if self.debug:
+            dump = ""
+            for i in range(instruction["bytes"]):
+                dump += hex(self.mem.read(self.pc + i)) + " "
         data = 0
         self.current_addr_mode = instruction["addressing"]
         if instruction["addressing"] == "ac":
@@ -96,11 +98,11 @@ class CPU:
         elif instruction["addressing"] == "iy":
             page_zero_index = self.mem.read(self.pc + 1)
             data = self.mem.read(page_zero_index) + (self.mem.read(page_zero_index + 1) << 8) + self.y
-        print("{}: {} - {}".format(hex(self.pc), dump[:-1], instruction["name"]))
         self.pc += instruction["bytes"]
-        print(self)
         instruction["func"](self, data)
-        print(self)
+        if self.debug:
+            print("{}: {} - {}".format(hex(self.pc), dump[:-1], instruction["name"]))
+            print(self)
 
     def __repr__(self):
         return "PC: {}, AC: {}, X: {}, Y: {}, SR: {}, SP: {}, IO_B: {}".format(hex(self.pc), hex(self.ac), hex(self.x), hex(self.y), hex(self.sr), hex(self.sp), hex(self.mem.io_byte))

@@ -100,5 +100,11 @@
     "byte": 16,
     "byte_length": 1,
     "addressing": "ip"
+  },
+  {
+    "name": "BTB",
+    "byte": 17,
+    "byte_length": 3,
+    "addressing": "a"
   }
 ]
