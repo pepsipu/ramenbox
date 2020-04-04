@@ -189,6 +189,7 @@ def _iny(cpu, data):
 
 
 def _jmp(cpu, data):
+    print(data)
     cpu.pc = data
 
 
@@ -199,6 +200,8 @@ def _jsr(cpu, data):
 
 
 def _lda(cpu, data):
+    if cpu.current_addr_mode == "a":
+        data = cpu.mem.read(data)
     cpu.ac = data
     set_zero(cpu, data)
     set_negative(cpu, data)
@@ -417,3 +420,34 @@ def _pxy(cpu, data):
     else:
         cpu.mem.pages[cpu.x]["active_bank"] = cpu.y
         cpu.sr &= 0xfe
+
+
+# draw pixel instruction
+# use x register as x point and y register as y point
+# data will be the byte to plot
+def _dxy(cpu, data):
+    page = cpu.mem.pages[cpu.display_page]
+    ptr = cpu.x + cpu.y * 240
+    page["banks"][(ptr & 0xff00) >> 8][ptr & 0xff] = data
+
+
+# draw pixel with accumulator
+def _dpa(cpu, data):
+    page = cpu.mem.pages[cpu.display_page]
+    ptr = cpu.x + cpu.y * 240
+    page["banks"][(ptr & 0xff00) >> 8][ptr & 0xff] = cpu.ac
+
+
+# draw pixel with linear position
+def _dpl(cpu, data):
+    page = cpu.mem.pages[cpu.display_page]
+    page["banks"][(data & 0xff00) >> 8][data & 0xff] = cpu.ac
+
+
+# read byte off of screen given x and y
+# x and y registers are x and y coords
+# stores pixel in accumulator
+def _rpd(cpu, data):
+    page = cpu.mem.pages[cpu.display_page]
+    ptr = cpu.x + cpu.y * 240
+    cpu.ac = page["banks"][(ptr & 0xff00) >> 8][ptr & 0xff]

@@ -64,5 +64,41 @@
     "byte": 10,
     "byte_length": 1,
     "addressing": "ip"
+  },
+  {
+    "name": "DXY",
+    "byte": 11,
+    "byte_length": 2,
+    "addressing": "i"
+  },
+  {
+    "name": "DXY",
+    "byte": 12,
+    "byte_length": 3,
+    "addressing": "ix"
+  },
+  {
+    "name": "DPA",
+    "byte": 13,
+    "byte_length": 1,
+    "addressing": "ip"
+  },
+  {
+    "name": "DPL",
+    "byte": 14,
+    "byte_length": 2,
+    "addressing": "i"
+  },
+  {
+    "name": "DPL",
+    "byte": 15,
+    "byte_length": 3,
+    "addressing": "ix"
+  },
+  {
+    "name": "RPD",
+    "byte": 16,
+    "byte_length": 1,
+    "addressing": "ip"
   }
 ]

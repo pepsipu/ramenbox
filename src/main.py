@@ -7,16 +7,16 @@ import time
 
 import RPi.GPIO as GPIO
 
-# inputs = {
-#     21: "key_1",
-#     20: "key_2",
-#     16: "key_3",
-#     6: "stick_up",
-#     19: "stick_down",
-#     26: "stick_right",
-#     5: "stick_left",
-#     13: "stick_press"
-# }
+inputs_name = {
+    21: "key_1",
+    20: "key_2",
+    16: "key_3",
+    6: "stick_up",
+    19: "stick_down",
+    26: "stick_right",
+    5: "stick_left",
+    13: "stick_press"
+}
 
 inputs = {
     21: 128,
@@ -39,12 +39,13 @@ cpu = CPU(display)
 
 
 def button_down(button):
+    print(inputs_name[button])
     cpu.mem.io_byte ^= inputs[button]
 
 
 for i in list(inputs.keys()):
     GPIO.setup(i, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-    GPIO.add_event_detect(i, GPIO.RISING, callback=button_down)
+    # GPIO.add_event_detect(i, GPIO.RISING, callback=button_down)
 
 
 # welcome.welcome_msg(display)
@@ -60,7 +61,7 @@ for i, byte in enumerate(program):
     cpu.mem.write(i + 0x4000, byte)
 cpu.pc = firmware_location
 
-debug = False
+debug = True
 while True:
     if debug:
         cmd = input("> ")

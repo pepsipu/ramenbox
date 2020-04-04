@@ -1,0 +1,38 @@
+Sections:
+section seg4000 (attr=<acrwx> align=1):
+    4000: symbol: game_loop EXPR(16384=0x4000) ABS 
+    4000: data(3): ad 00 ee 
+    4003: data(2): c9 02 
+    4005: data(2): f0 0c 
+    4007: data(2): c9 04 
+    4009: data(2): f0 0e 
+    400b: data(2): c9 08 
+    400d: data(2): f0 16 
+    400f: data(2): c9 10 
+    4011: data(2): f0 0c 
+    4013: symbol: left_stick EXPR(16403=0x4013) ABS 
+    4013: data(3): ce 2b 40 
+    4016: data(3): 4c 00 40 
+    4019: symbol: right_stick EXPR(16409=0x4019) ABS 
+    4019: data(3): ee 2b 40 
+    401c: data(3): 4c 00 40 
+    401f: symbol: up_stick EXPR(16415=0x401f) ABS 
+    401f: data(3): ee 2c 40 
+    4022: data(3): 4c 00 40 
+    4025: symbol: down_stick EXPR(16421=0x4025) ABS 
+    4025: data(3): ce 2c 40 
+    4028: data(3): 4c 00 40 
+    402b: symbol: x_pos EXPR(16427=0x402b) ABS 
+    402b: data(1): 00 
+    402c: symbol: y_pos EXPR(16428=0x402c) ABS 
+    402c: data(1): 00 
+Symbols:
+y_pos EXPR(16428=0x402c) ABS 
+x_pos EXPR(16427=0x402b) ABS 
+up_stick EXPR(16415=0x401f) ABS 
+down_stick EXPR(16421=0x4025) ABS 
+right_stick EXPR(16409=0x4019) ABS 
+left_stick EXPR(16403=0x4013) ABS 
+game_loop EXPR(16384=0x4000) ABS 
+__RPTCNT EXPR(-1=0xffff) INTERNAL 
+__VASM EXPR(0=0x0) INTERNAL 

@@ -15,7 +15,7 @@ class Memory:
 
     def read(self, address, sign=False):
         if address == 0xee00:
-            return self.io_byte
+            return self.io_byte & 0xff
         page = self.pages[(address & 0xff00) >> 8]
         res = page["banks"][page["active_bank"]][address & 0xff]
         if sign and res > 127:
