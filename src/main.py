@@ -36,7 +36,7 @@ GPIO.setwarnings(False)
 display = ST7789.ST7789(SPI.SpiDev(0, 0))
 display.init()
 display.clear()
-debug = False
+debug = True
 cpu = CPU(display, debug=debug)
 
 for i in list(inputs.keys()):
@@ -56,7 +56,6 @@ if len(sys.argv) > 2:
     page = cpu.mem.pages[cpu.mem.display_page]
     pixels = 0
     for i in range(240 * 240):
-        x = (img[pixels] + (img[pixels + 1] >> 8))
         page["banks"][(i & 0xff00) >> 8][i & 0xff] = (img[pixels] + (img[pixels + 1] >> 8))
         pixels += 2
 

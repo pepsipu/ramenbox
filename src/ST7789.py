@@ -154,6 +154,7 @@ class ST7789(object):
         GPIO.output(self._dc, GPIO.HIGH)
         for i in range(0, len(pix), 4096):
             self._spi.writebytes(pix[i:i + 4096])
+        return pix
 
     def write_array(self, arr):
         self.SetWindows(0, 0, self.width, self.height)
